@@ -15,16 +15,11 @@ namespace DeliveryNat.Controllers
 
         public IActionResult List()
         {
-            ViewData["Titulo"] = "Todos os produtos";
-            ViewData["Data"] = DateTime.Now;
+            var ProdutosListViewModel = new ProdutoListViewModel();
+            ProdutosListViewModel.Produtos = _produtoRepository.Produtos;
+            ProdutosListViewModel.CategoriaAtual = "Categoria Atual";
 
-            var produtos = _produtoRepository.Produtos;
-            var totalProdutos = produtos.Count();
-
-            ViewBag.Total = "Total de produtos : ";
-            ViewBag.TotalProdutos = totalProdutos;
-
-            return View(produtos);
+            return View(ProdutosListViewModel);
 
         }
     }
