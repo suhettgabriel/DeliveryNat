@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DeliveryNat.Models.Produto>
+
+    
+<div>
+    <h1>@ViewData["Titulo"]</h1>
+</div>
+<h6>@ViewData["Data"]</h6>
+<hr  />
+<h3>@ViewBag.Total @ViewBag.TotalProdutos</h3>
+<hr  />
+<h3>@TempData["Nome"]</h3>
+
+<div class="container">
+<div class="row">
+@foreach(var lanche in Model)
+{
+   <div class="col-sm-4 col-md-4 col-lg-4" >
+   <p><img src="@lanche.ImagemUrl" class="img-fluid"></p>
+    <h3>Preço : @lanche.Preco.ToString("c")</h3>
+    <h4>@lanche.Nome</h4>
+    <p>@lanche.DescricaoCurta</p>
+  </div>
+
+}
+</div>
+</div>

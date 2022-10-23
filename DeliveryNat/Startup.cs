@@ -1,4 +1,6 @@
 ﻿using DeliveryNat.Context;
+using DeliveryNat.Migrations.Repositories;
+using DeliveryNat.Migrations.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeliveryNat
@@ -17,7 +19,12 @@ namespace DeliveryNat
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+
+
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
