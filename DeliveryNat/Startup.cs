@@ -1,6 +1,7 @@
 ﻿using DeliveryNat.Context;
 using DeliveryNat.Migrations.Repositories;
 using DeliveryNat.Migrations.Repositories.Interfaces;
+using DeliveryNat.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeliveryNat
@@ -21,7 +22,8 @@ namespace DeliveryNat
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();   
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
 
             services.AddControllersWithViews();
