@@ -21,9 +21,13 @@ namespace DeliveryNat
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();   
 
 
             services.AddControllersWithViews();
+
+            services.AddMemoryCache();
+            services.AddSession();
 
         }
 
@@ -44,6 +48,8 @@ namespace DeliveryNat
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
