@@ -27,6 +27,20 @@ namespace DeliveryNat
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            #region  Codigo para configurar as validações das senhas
+            
+            //services.Configure<IdentityOptions>(options =>
+            //{
+            //    // Default Password settings.
+            //    options.Password.RequireDigit = false;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //    options.Password.RequiredLength = 3;
+            //    options.Password.RequiredUniqueChars = 1;
+            //});
+            #endregion
+
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
@@ -60,6 +74,7 @@ namespace DeliveryNat
 
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

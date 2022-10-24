@@ -18,17 +18,17 @@ namespace DeliveryNat.Controllers
             IEnumerable<Produto> produtos;
             string categoriaAtual = string.Empty;
 
-            if(string.IsNullOrEmpty(categoria))
+            if (string.IsNullOrEmpty(categoria))
             {
                 produtos = _produtoRepository.Produtos.OrderBy(p => p.ProdutoId);
                 categoriaAtual = "Todos os produtos";
             }
-            else 
+            else
             {
                 produtos = _produtoRepository.Produtos
                   .Where(p => p.Categoria.CategoriaNome.Equals(categoria))
                   .OrderBy(c => c.Nome);
-                categoriaAtual = categoria;            
+                categoriaAtual = categoria;
             }
 
             var produtosListViewModel = new ProdutoListViewModel

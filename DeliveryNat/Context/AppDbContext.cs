@@ -17,5 +17,5 @@ namespace DeliveryNat.Context
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
     }
- }
+}
 

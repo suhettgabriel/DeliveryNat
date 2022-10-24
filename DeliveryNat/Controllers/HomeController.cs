@@ -19,16 +19,16 @@ public class HomeController : Controller
         {
             ProdutosPreferidos = _produtoRepository.ProdutosPreferidos
         };
- 
+
         return View(homeViewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel 
+        return View(new ErrorViewModel
         {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier 
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
         });
     }
 }

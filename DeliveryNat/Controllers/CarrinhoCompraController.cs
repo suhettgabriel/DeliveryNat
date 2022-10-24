@@ -1,6 +1,7 @@
 ﻿using DeliveryNat.Migrations.Repositories.Interfaces;
 using DeliveryNat.Models;
 using DeliveryNat.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliveryNat.Controllers
@@ -30,6 +31,7 @@ namespace DeliveryNat.Controllers
 
             return View(carrinhoCompraVM);
         }
+        [Authorize]
         public IActionResult AdicionarItemNoCarrinhoCompra(int produtoId)
         {
             var produtoSelecionado = _produtoRepository.Produtos
@@ -42,6 +44,7 @@ namespace DeliveryNat.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public IActionResult RemoverItemDoCarrinhoCompra(int produtoId)
         {
             var produtoSelecionado = _produtoRepository.Produtos
