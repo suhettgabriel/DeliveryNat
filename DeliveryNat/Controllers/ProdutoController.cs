@@ -25,20 +25,10 @@ namespace DeliveryNat.Controllers
             }
             else 
             {
-                if(string.Equals("Lanches", categoria, StringComparison.OrdinalIgnoreCase))
-                {
-                    produtos = _produtoRepository.Produtos
-                        .Where(p => p.Categoria.CategoriaNome.Equals("Lanches"))
-                        .OrderBy(p => p.Nome);
-                }
-                else
-                {
-                    produtos = _produtoRepository.Produtos
-                        .Where(p => p.Categoria.CategoriaNome.Equals("Pizzas"))
-                        .OrderBy(p => p.Nome);
-                }
-                categoriaAtual = categoria;
-            
+                produtos = _produtoRepository.Produtos
+                  .Where(p => p.Categoria.CategoriaNome.Equals(categoria))
+                  .OrderBy(c => c.Nome);
+                categoriaAtual = categoria;            
             }
 
             var produtosListViewModel = new ProdutoListViewModel
@@ -48,6 +38,11 @@ namespace DeliveryNat.Controllers
             };
             return View(produtosListViewModel);
 
+        }
+        public IActionResult Details(int produtoId)
+        {
+            var produto = _produtoRepository.Produtos.FirstOrDefault(p => p.ProdutoId == produtoId);
+            return View(produto);
         }
     }
 }
