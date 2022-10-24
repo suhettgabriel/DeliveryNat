@@ -10,10 +10,10 @@ namespace DeliveryNat.Controllers
         private readonly IProdutoRepository _produtoRepository;
         private readonly CarrinhoCompra _carrinhoCompra;
 
-        public CarrinhoCompraController(IProdutoRepository lancheRepository,
+        public CarrinhoCompraController(IProdutoRepository ProdutoRepository,
             CarrinhoCompra carrinhoCompra)
         {
-            _produtoRepository = lancheRepository;
+            _produtoRepository = ProdutoRepository;
             _carrinhoCompra = carrinhoCompra;
         }
 
