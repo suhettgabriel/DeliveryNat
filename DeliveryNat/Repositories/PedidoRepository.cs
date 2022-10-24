@@ -33,7 +33,7 @@ namespace DeliveryNat.Repositories
                     PedidoId = pedido.PedidoId,
                     Preco = carrinhoItem.Produto.Preco
                 };
-                _appDbContext.PedidosDetalhes.Add(pedidoDetail);
+                _appDbContext.PedidoDetalhes.Add(pedidoDetail);
             }
             _appDbContext.SaveChanges();
         }

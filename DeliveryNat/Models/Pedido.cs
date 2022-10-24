@@ -30,7 +30,7 @@ namespace DeliveryNat.Models
         [StringLength(10, MinimumLength = 8)]
         public string Cep { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string Estado { get; set; }
 
         [StringLength(50)]

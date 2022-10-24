@@ -6,13 +6,13 @@
     <title>@ViewData["Title"] - DeliveryNat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DeliveryNat.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/lanchemac2.png" widht="60" height="60" />
                     DeliveryNat
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,13 +20,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    
                     @await Component.InvokeAsync("CarrinhoCompraResumo")
+                    <form class="navbar-form navbar-right" asp-controller="Lanche" asp-action="Search" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Procurar produto" name="searchString" value="@ViewData["searchString"]">
+                        </div>
+                    </form>
                     <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
                     @await Component.InvokeAsync("CategoriaMenu")
                     
-@*                    <a class="nav-link text-light" asp-area="" asp-controller="Produto" asp-action="List">Produtos</a>*@
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>                
+                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
                 </div>
             </div>
         </nav>
@@ -39,7 +43,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - DeliveryNat - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - DeliveryNat
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
