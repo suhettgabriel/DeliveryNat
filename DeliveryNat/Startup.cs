@@ -1,4 +1,5 @@
-﻿using DeliveryNat.Context;
+﻿using DeliveryNat.Areas.Admin.Services;
+using DeliveryNat.Context;
 using DeliveryNat.Migrations.Repositories;
 using DeliveryNat.Migrations.Repositories.Interfaces;
 using DeliveryNat.Models;
@@ -47,6 +48,7 @@ namespace DeliveryNat
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+            services.AddScoped<RelatorioVendasService>();
 
             services.AddAuthorization(options =>
             {
