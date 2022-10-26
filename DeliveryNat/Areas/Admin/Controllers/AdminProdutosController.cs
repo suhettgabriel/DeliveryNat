@@ -20,11 +20,6 @@ namespace DeliveryNat.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminProdutos
-        //public async Task<IActionResult> Index()
-        //{
-        //    var appDbContext = _context.Produtos.Include(p => p.Categoria);
-        //    return View(await appDbContext.ToListAsync());
-        //}
         public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
         {
             var resultado = _context.Produtos.Include(p => p.Categoria).AsQueryable();

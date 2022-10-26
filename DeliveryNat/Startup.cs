@@ -30,6 +30,10 @@ namespace DeliveryNat
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AccessDenied");
+
+            services.Configure<ConfigurationImagens>(Configuration.GetSection("ConfigurationPastaImagens"));
+
             #region  Codigo para configurar as validações das senhas
 
             //services.Configure<IdentityOptions>(options =>

@@ -1,0 +1,53 @@
+﻿<br />
+<h4><strong>Gerenciar Imagens</strong></h4>
+<br />
+<table border="0" width="100%">
+    <tr>
+        <td style="padding-right:20px">
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="UploadFiles">
+                <div class="col-sm">
+                    <i style="width: 100px; height:100px" class="fa fa-cloud-arrow-up"></i>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p><b>Selecione um ou mais arquivos para enviar :</b></p>
+                        <p>(Arquivos com o mesmo nome serão sobrescritos)</p>
+                        <input type="file" name="files" multiple class="button btn-outline-primary" />
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Enviar Arquivo(s)" class="button btn btn-outline-success" />
+                    </div>
+                </div>
+            </form>
+        </td>
+        <td style="display: grid">
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="GetImagens">
+                <div class="col-sm">
+                    <i style="width: 100px; height:100px" class="fa fa-users-viewfinder"></i>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p><strong>Visualizar Imagens na pasta do servidor :</strong></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Visualizar Arquivos no servidor" class="button btn btn-outline-warning" />
+                    </div>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+<div class="container">
+    @if (ViewData["Deletado"] != null)
+    {
+        <li>@ViewData["Deletado"]</li>
+    }
+</div>
+
