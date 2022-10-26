@@ -24,28 +24,28 @@
 <p style="padding-top:15px">
     <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus-circle"></i> Novo Pedido</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-light">
         <tr>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Sobrenome)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Endereco1)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Cidade)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Telefone)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.PedidoEnviado)
             </th>
-            <th>
+            <th scope="col"> 
                 @Html.DisplayNameFor(model => model.PedidoEntregueEm)
             </th>
             <th></th>
@@ -55,28 +55,28 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.Sobrenome)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.Endereco1)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.Cidade)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.Telefone)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.PedidoEnviado)
                 </td>
-                <td>
+                <td scope="row">
                     @Html.DisplayFor(modelItem => item.PedidoEntregueEm)
-                </td>
-                <td>
+                </td >
+                <td scope="row">
                     <a asp-action="Edit" asp-route-id="@item.PedidoId"><i class="fa fa-edit"></i></a>
                     <a asp-action="Details" asp-route-id="@item.PedidoId"><i class="fa fa-search"></i></a>
                     <a asp-action="Delete" asp-route-id="@item.PedidoId"><i class="fa fa-trash"></i></a>
