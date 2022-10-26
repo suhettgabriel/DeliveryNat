@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - DeliveryNat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/fontawesome.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -19,7 +21,13 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    @await Html.PartialAsync("_LoginPartial")
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                    }
                     @await Component.InvokeAsync("CarrinhoCompraResumo")
 
                     <form class="navbar-form navbar-right" asp-controller="Produto" asp-action="Search" method="get">
@@ -31,13 +39,10 @@
                     @await Component.InvokeAsync("CategoriaMenu")
 
                     <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    @await Html.PartialAsync("_LoginPartial")
-                                        @if(User.IsInRole("Admin"))
-                    {
-                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
-                    }
+
 
                 </div>
+
             </div>
         </nav>
     </header>
@@ -56,5 +61,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/all.min.js"></script>
+    <script src="~/js/fontawesome.min.js"></script>
 </body>
 </html>

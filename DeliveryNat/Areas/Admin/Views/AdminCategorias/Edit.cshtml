@@ -23,14 +23,14 @@
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
-            <div style="padding-top:10px" class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+            <div style="padding-top:20px" class="form-group">
+                <input style="background-color: green;"  type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar a Lista</a>
+<div style="padding-top:20px">
+    <a class="btn btn-primary" asp-action="Index"><i class="fa fa-circle-arrow-left"></i>  Voltar</a>
 </div>
 

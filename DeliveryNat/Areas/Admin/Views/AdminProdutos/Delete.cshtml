@@ -6,7 +6,7 @@
 
 <h1>Excluir Produto</h1>
 
-<h3>Você tem certeza que deseja excluir o produto?</h3>
+<h3><iVocê tem certeza que deseja excluir o produto?</h3>
 
 <div>
     <h4>Produto</h4>
@@ -70,7 +70,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProdutoId" />
-        <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar para Lista</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-primary" asp-action="Index"> <i class="fa fa-circle-arrow-left"></i> Voltar</a>
     </form>
 </div>

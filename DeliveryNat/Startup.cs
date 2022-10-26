@@ -7,6 +7,7 @@ using DeliveryNat.Repositories.Interfaces;
 using DeliveryNat.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 
 namespace DeliveryNat
 {
@@ -62,6 +63,13 @@ namespace DeliveryNat
 
 
             services.AddControllersWithViews();
+
+            services.AddPaging(options =>
+            {
+                options.ViewName = "Bootstrap4";
+                options.PageParameterName = "pageindex";
+
+            });
 
             services.AddMemoryCache();
             services.AddSession();
