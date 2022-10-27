@@ -71,9 +71,9 @@
                     @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
                 </td>
                 <td scope="row">
-                    <a title="Editar Produto" asp-action="Edit" asp-route-id="@item.ProdutoId"><i class="fa fa-edit"></i></a>
-                    <a title="Detalhes do Produto" asp-action="Details" asp-route-id="@item.ProdutoId"><i class="fa fa-search"></i></a>
-                    <a title="Exluir Produto" asp-action="Delete" asp-route-id="@item.ProdutoId"><i class="fa fa-trash"></i></a>
+                    <a title="Editar Produto" asp-action="Edit" asp-route-id="@item.ProdutoId"><i style="color: dimgrey" class="fa fa-edit"></i></a>
+                    <a title="Detalhes do Produto" asp-action="Details" asp-route-id="@item.ProdutoId"><i style="color: dimgrey" class="fa fa-search"></i></a>
+                    <a title="Exluir Produto" asp-action="Delete" asp-route-id="@item.ProdutoId"><i style="color: dimgrey"   class="fa fa-trash"></i></a>
                 </td>
             </tr>
         }

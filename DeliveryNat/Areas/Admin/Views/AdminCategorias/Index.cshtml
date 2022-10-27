@@ -7,7 +7,7 @@
 <h1>Categoria</h1>
 
 <p style="padding-top:25px">
-    <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus-circle"></i> Nova Categoria</a>
+    <a class="btn btn-outline-primary" asp-action="Create"><i class="fa fa-plus-circle"></i> Nova Categoria</a>
 </p>
 <table class="table table-hover">
     <thead class="thead-light">
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoriaId"><i class="fa fa-edit"></i></a> |
-                <a asp-action="Details" asp-route-id="@item.CategoriaId"><i class="fa fa-search"></i></a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoriaId"><i class="fa fa-trash"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.CategoriaId"><i style="color: dimgrey" class="fa fa-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.CategoriaId"><i style="color: dimgrey" class="fa fa-search"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.CategoriaId"><i style="color: dimgrey" class="fa fa-trash"></i></a>
             </td>
         </tr>
 }

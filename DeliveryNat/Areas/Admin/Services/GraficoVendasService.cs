@@ -18,16 +18,16 @@ namespace DeliveryNat.Areas.Admin.Services
 
 
             var produtos = (from pd in context.PedidoDetalhes
-                           join l in context.Produtos on pd.ProdutoId equals l.ProdutoId
-                           where pd.Pedido.PedidoEnviado >= data
-                           group pd by new { pd.ProdutoId, l.Nome }
+                            join l in context.Produtos on pd.ProdutoId equals l.ProdutoId
+                            where pd.Pedido.PedidoEnviado >= data
+                            group pd by new { pd.ProdutoId, l.Nome }
                            into g
-                           select new
-                           {
-                               ProdutoNome = g.Key.Nome,
-                               ProdutosQuantidade = g.Sum(q => q.Quantidade),
-                               ProdutosValorTotal = g.Sum(a => a.Preco * a.Quantidade)
-                           });
+                            select new
+                            {
+                                ProdutoNome = g.Key.Nome,
+                                ProdutosQuantidade = g.Sum(q => q.Quantidade),
+                                ProdutosValorTotal = g.Sum(a => a.Preco * a.Quantidade)
+                            });
 
             var lista = new List<ProdutoGrafico>();
 
