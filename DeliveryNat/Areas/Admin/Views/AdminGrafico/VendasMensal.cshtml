@@ -1,6 +1,9 @@
 ﻿<title>
     @ViewData["Title"] - Grafico de Vendas
 </title>
+<div style="padding-bottom:15px" class="row">
+    <h1><i style="color: darkslategrey" class="fa fa-chart-simple"></i>&nbsp;Produtos - Vendas últimos 30 dias</h1>
+</div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
@@ -36,7 +39,7 @@
         });
         var data = google.visualization.arrayToDataTable(dataArray);
         var options = {
-            title: 'Produtos - Vendas últimos 30 dias',
+            //title: 'Produtos - Vendas últimos 30 dias',
 
             animation: {
                 duration: 3000,

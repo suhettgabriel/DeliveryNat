@@ -3,83 +3,82 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Editar Produto</h1>
-
-<h4>Produto</h4>
-<hr />
-<div class="row">
+<div style="padding-bottom:15px" class="row">
+    <h1><i style="color: darkslategrey" class="fa-regular fa-pen-to-square"></i>&nbsp;Editar Produto</h1>
+</div>
+<div class="container">
     <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProdutoId" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescricaoCurta" class="control-label"></label>
-                <input asp-for="DescricaoCurta" class="form-control" />
-                <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-5">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-7">
+                    <label asp-for="DescricaoCurta" class="control-label"></label>
+                    <input asp-for="DescricaoCurta" class="form-control" />
+                    <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="DescricaoDetalhada" class="control-label"></label>
-                <input asp-for="DescricaoDetalhada" class="form-control" />
+                <textarea asp-for="DescricaoDetalhada" class="form-control"></textarea>
                 <span asp-validation-for="DescricaoDetalhada" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
+
+            <div style="padding-left:10px" class="row">
+                <div  class="col-md-8">
+                    <div class="form-group row">
+                        <label asp-for="ImagemUrl" class="control-label"></label>
+                        <input asp-for="ImagemUrl" class="form-control" />
+                        <span asp-validation-for="ImagemUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="ImagemThumbnailUrl" class="control-label"></label>
+                        <input asp-for="ImagemThumbnailUrl" class="form-control" />
+                        <span asp-validation-for="ImagemThumbnailUrl" class="text-danger"></span>
+                    </div>
+                </div>
+                <div style="padding-left:100px" class="form-group col-md-4">
+                    <img style="max-width: 160px;" src="@Model.ImagemUrl" />
+                </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-6">
-                    <label asp-for="ImagemUrl" class="control-label"></label>
-                    <input asp-for="ImagemUrl" class="form-control" />
-                    <span asp-validation-for="ImagemUrl" class="text-danger"></span>
+                <div class="form-group col-sm-3">
+                    <label asp-for="Preco" class="control-label"></label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-6">
-                    <img style="max-width: 200px;" src="@Model.ImagemUrl" />
+                <div class="form-group col-sm-3">
+                    <label asp-for="CategoriaId" class="control-label"></label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImagemThumbnailUrl" class="control-label"></label>
-                <input asp-for="ImagemThumbnailUrl" class="form-control" />
-                <span asp-validation-for="ImagemThumbnailUrl" class="text-danger"></span>
-            </div>
-            <div class="row">
-                <div class="form-group col-sm-4">
+                <div class="form-group col-sm-3">
                     <label class="control-label">Marcar como Preferido?</label>
                     <br />
                     <label class="form-check-label" style="padding-left: 20px">
                         <input class="form-check-input" asp-for="IsProdutoPreferido" /> @Html.DisplayNameFor(model => model.IsProdutoPreferido)
                     </label>
                 </div>
-                <div class="form-group col-sm-4">
+                <div class="form-group col-sm-3">
                     <label class="control-label">Marcar como em Estoque?</label>
                     <br />
                     <label class="form-check-label" style="padding-left: 20px">
                         <input class="form-check-input" asp-for="EmEstoque" /> @Html.DisplayNameFor(model => model.EmEstoque)
                     </label>
                 </div>
-                <div class="form-group col-sm-4">
-                    <label asp-for="CategoriaId" class="control-label"></label>
-                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
-                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
-                </div>
+
             </div>
-
-
-
-            <div style="padding-top:20px" class="form-group">
+            <div style="padding-top:40px">
                 <input style="background-color: green;" type="submit" value="Salvar" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-action="Index"><i class="fa fa-circle-arrow-left"></i>  Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div style="padding-top:20px">
-    <a class="btn btn-primary" asp-action="Index"><i class="fa fa-circle-arrow-left"></i>  Voltar</a>
-</div>
 

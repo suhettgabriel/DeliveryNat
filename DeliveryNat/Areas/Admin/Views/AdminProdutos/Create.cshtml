@@ -3,11 +3,9 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Criar novo Produto</h1>
-
-@*<h4>Produto</h4>*@
-<hr />
+<div style="padding-bottom:15px" class="row">
+    <h1><i style="color: darkslategrey" class="fa fa-plus-square"></i>&nbsp;Criar novo Produto</h1>
+</div>
 <div class="row">
     <div class="col-md-12">
         <form asp-action="Create">
@@ -65,15 +63,12 @@
                 </div>
 
             </div>
-            <div style="padding-top:20px" class="row">
-                <div class="form-group col">
+            <div style="padding-top:20px">
+
                     <input style="background-color: green;" type="submit" value="Adicionar" class="btn btn-primary" />
-                </div>
-                <div class="col-10">
+
                     <a class="btn btn-primary" asp-action="Index"> <i class="fa fa-circle-arrow-left"></i>&nbsp; Voltar</a>
-                </div>
-
-
+          
             </div>
         </form>
     </div>

@@ -3,28 +3,27 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Detalhes da Categoria</h1>
+<div style="padding-bottom:25px" class="row">
+    <h1><i style="color: darkslategrey" class="fa fa-circle-info"></i>&nbsp;Detalhes da Categoria</h1>
+</div>
 
 <div>
-    <h4>Categoria</h4>
-    <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CategoriaNome)
         </dt>
-        <dd class = "col-sm-10">
+        <dd style="background-color:#FFFACD" class="col-sm-10">
             @Html.DisplayFor(model => model.CategoriaNome)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd style="background-color:#FFFACD" class="col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
     </dl>
 </div>
-<div>
-    <a style="background-color: green;" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.CategoriaId"><i class="fa fa-edit"></i>  Editar</a> 
+<div style="padding-top:40px">
+    <a style="background-color: green;" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.CategoriaId"><i class="fa fa-edit"></i>  Editar</a>
     <a class="btn btn-primary" asp-action="Index"><i class="fa fa-circle-arrow-left"></i>  Voltar</a>
 </div>

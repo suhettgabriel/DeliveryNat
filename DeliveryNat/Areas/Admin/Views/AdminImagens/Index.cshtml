@@ -1,48 +1,52 @@
 ﻿<h1><i style="color: darkslategrey" class="fa fa-image"></i>&nbsp;Gerenciar Imagens</h1>
 <br />
-<table border="0" width="100%">
-    <tr>
-        <td style="padding-right:20px">
-            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="UploadFiles">
-                <div class="col-sm">
-                    <i style="width: 100px; height:100px" class="fa fa-cloud-arrow-up"></i>
-                </div>
-                <hr />
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <p><b>Selecione um ou mais arquivos para enviar :</b></p>
-                        <p>(Arquivos com o mesmo nome serão sobrescritos)</p>
-                        <input type="file" name="files" multiple class="button btn-outline-primary" />
+<div class="row">
+    <div class="col-6">
+        <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="UploadFiles">
+            <div class="col-sm">
+                <i style="width: 100px; height:100px; color:aquamarine" class="fa fa-cloud-arrow-up"></i>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group col">
+                    <p><b>Selecione um ou mais arquivos para enviar :</b></p>
+                    <p>(Arquivos com o mesmo nome serão sobrescritos)</p>
+                    <input type="file" name="files" multiple class="button btn-primary" />
+                    <div style="padding-top:10px" class="form-group col">
+                        <input type="submit" value="Enviar" class="button btn btn-success" />
                     </div>
                 </div>
-                <hr />
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <input type="submit" value="Enviar Arquivo(s)" class="button btn btn-success" />
-                    </div>
+            </div>
+            <hr />
+
+        </form>
+    </div>
+    <div class="col-6">
+        <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="GetImagens">
+            <div class="col-sm">
+                <i style="width: 100px; height:100px; color:orangered;" class="fa fa-users-viewfinder"></i>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p><strong>Visualizar Imagens na pasta do servidor :</strong></p>
                 </div>
-            </form>
-        </td>
-        <td style="display: grid">
-            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="GetImagens">
-                <div class="col-sm">
-                    <i style="width: 100px; height:100px" class="fa fa-users-viewfinder"></i>
+            </div>
+            <div style="padding-top:31px" class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Visualizar Arquivos no servidor" class="button btn btn-warning" />
                 </div>
-                <hr />
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <p><strong>Visualizar Imagens na pasta do servidor :</strong></p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <input type="submit" value="Visualizar Arquivos no servidor" class="button btn btn-outline-warning" />
-                    </div>
-                </div>
-            </form>
-        </td>
-    </tr>
-</table>
+            </div>
+
+        </form>
+        <br />
+        <br />
+        
+
+        <hr />
+    </div>
+
+</div>
 <div class="container">
     @if (ViewData["Deletado"] != null)
     {
