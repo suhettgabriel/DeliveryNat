@@ -6,10 +6,12 @@
 </div>
 
 <div class="container">
+    <hr />
     <div class="row">
         @foreach (var produto in Model.Produtos)
         {
             <partial name="_ProdutosResumo" for="@produto" />
         }
     </div>
+
 </div>

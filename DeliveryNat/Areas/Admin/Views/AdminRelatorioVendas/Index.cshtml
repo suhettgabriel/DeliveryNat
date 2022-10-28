@@ -1,23 +1,32 @@
-﻿<div class="row">
-    <div class="col-md-6">
+﻿<div style="padding-bottom:15px">
+    <h1><i style="color: darkslategrey" class="fa fa-table"></i>&nbsp;Relatório de Pedidos por Período</h1>
+</div>
+<div class="row">
+    <div class="col-md-10">
         <form class="form-horizontal" asp-action="RelatorioVendasSimples">
             <fieldset>
-                <legend><i class="fa fa-table"></i><b>   Relatório de Pedidos por Período</b></legend>
-                <div class="form-group">
-                    <label for="minDate" class="col-lg-6 control-label">Data Inicial</label>
-                    <div class="col-lg-10">
+
+                <div style="padding-top:20px" class="row">
+                    <div class="form-group col-3">
+                        <label for="minDate" class="col-lg-6 control-label">Data Inicial</label>
                         <input type="date" name="minDate" class="form-control" />
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="maxDate" class="col-lg-6 control-label">Data Final</label>
-                    <div class="col-lg-10">
+                    <div class="form-group col-3">
+                        <label for="maxDate" class="col-lg-6 control-label">Data Final</label>
                         <input type="date" name="maxDate" class="form-control" />
                     </div>
+                    <div style="padding-top:20px"  class="col-3">
+                        <a class="btn btn-primary" asp-controller="AdminProdutosReport" asp-action="ProdutosCategoriaReport"><i class="fa-solid fa-table-list"></i>&nbsp; Gerar Relatório</a>
+                    </div>
+                    <div style="padding-top:20px" class="col-3">
+                        <a class="btn btn-primary" asp-controller="AdminProdutosReport" asp-action="ProdutosCategoriaPDF"><i class="fa-regular fa-file-pdf"></i>&nbsp; Gerar PDF</a>
+                    </div>
                 </div>
-                <div style="padding-top: 25px" class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-outline-success">Enviar</button>
+                <div style="padding-top:15px; padding-bottom:20px" class="row">
+                </div>
+                <div style="padding-top:15px; padding-bottom:20px" class="row">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-success">Ver Relatório</button>
                     </div>
                 </div>
             </fieldset>

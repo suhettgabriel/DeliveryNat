@@ -4,26 +4,31 @@
     ViewData["Title"] = "Index";
 }
 
-
-
 <div style="padding-bottom:15px" class="row">
-    <h1>Produtos</h1>
+    <h1><i style="color: darkslategrey" class="fa fa-burger"></i>&nbsp;Produtos</h1>
 </div>
-<form method="get" class="form-inline">  
-        <div class="row">
-            <div class="col">
-                <input name="filter" class="form-control" placeholder="filtro"
-                       value="@Model.RouteValue["Filter"]" />
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-outline-info"><i class="fa fa-magnifying-glass"></i>  Procurar</button>
-            </div>
+<form method="get" class="form-inline">
+    <div class="row">
+        <div class="col">
+            <input name="filter" class="form-control" placeholder="filtro"
+                   value="@Model.RouteValue["Filter"]" />
         </div>
+        <div class="col-8">
+            <button type="submit" class="btn btn-outline-info"><i class="fa fa-magnifying-glass"></i>  Procurar</button>
+        </div>
+    </div>
 </form>
-
-<p style="padding-top:15px">
-    <a class="btn btn-outline-primary" asp-action="Create"><i class="fa fa-plus-circle"></i> Novo Produto</a>
-</p>
+<div style="padding-top:15px; padding-bottom:20px" class="row">
+    <div class="col-8">
+        <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus-circle"></i> Novo Produto</a>
+    </div>
+    <div style="direction:rtl" class="col-2">
+        <a class="btn btn-primary" asp-controller="AdminProdutosReport" asp-action="ProdutosCategoriaReport"><i class="fa-solid fa-table-list"></i>&nbsp; Gerar Relatório</a>
+    </div>
+    <div style="direction:rtl" class="col-2">
+        <a class="btn btn-primary" asp-controller="AdminProdutosReport" asp-action="ProdutosCategoriaPDF"><i class="fa-regular fa-file-pdf"></i>&nbsp; Gerar PDF</a>
+    </div>
+</div>
 <table class="table table-hover">
     <thead class="thead-light">
         <tr>
@@ -73,12 +78,13 @@
                 <td scope="row">
                     <a title="Editar Produto" asp-action="Edit" asp-route-id="@item.ProdutoId"><i style="color: dimgrey" class="fa fa-edit"></i></a>
                     <a title="Detalhes do Produto" asp-action="Details" asp-route-id="@item.ProdutoId"><i style="color: dimgrey" class="fa fa-search"></i></a>
-                    <a title="Exluir Produto" asp-action="Delete" asp-route-id="@item.ProdutoId"><i style="color: dimgrey"   class="fa fa-trash"></i></a>
+                    <a title="Exluir Produto" asp-action="Delete" asp-route-id="@item.ProdutoId"><i style="color: dimgrey" class="fa fa-trash"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<hr />
 Total de Lanches : @Model.TotalRecordCount
 <div>
     <vc:pager paging-list="@Model"></vc:pager>

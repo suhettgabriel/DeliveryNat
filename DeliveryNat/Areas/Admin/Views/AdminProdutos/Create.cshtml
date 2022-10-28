@@ -6,31 +6,28 @@
 
 <h1>Criar novo Produto</h1>
 
-<h4>Produto</h4>
+@*<h4>Produto</h4>*@
 <hr />
 <div class="row">
     <div class="col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescricaoCurta" class="control-label"></label>
-                <input asp-for="DescricaoCurta" class="form-control" />
-                <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-7">
+                    <label asp-for="DescricaoCurta" class="control-label"></label>
+                    <input asp-for="DescricaoCurta" class="form-control" />
+                    <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="DescricaoDetalhada" class="control-label"></label>
-                <input asp-for="DescricaoDetalhada" class="form-control" />
+                <textarea asp-for="DescricaoDetalhada" class="form-control"></textarea>
                 <span asp-validation-for="DescricaoDetalhada" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagemUrl" class="control-label"></label>
@@ -43,33 +40,44 @@
                 <span asp-validation-for="ImagemThumbnailUrl" class="text-danger"></span>
             </div>
             <div class="row">
-                <div class="form-group form-check col-md-4">
+                <div class="form-group col-md-3">
+                    <label asp-for="Preco" class="control-label"></label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="CategoriaId" class="control-label"></label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"><option selected>Selecione a categoria...</option></select>
+                </div>
+                <div class="form-group form-check col-md-3">
                     <label class="control-label">Marcar como Preferido?</label>
                     <br />
                     <label class="form-check-label" style="padding-left: 20px">
                         <input class="form-check-input" asp-for="IsProdutoPreferido" /> @Html.DisplayNameFor(model => model.IsProdutoPreferido)
                     </label>
                 </div>
-                <div class="form-group form-check col-md-4">
+                <div class="form-group form-check col-md-3">
                     <label class="control-label">Marcar como em Estoque?</label>
                     <br />
                     <label class="form-check-label" style="padding-left: 20px">
                         <input class="form-check-input" asp-for="EmEstoque" /> @Html.DisplayNameFor(model => model.EmEstoque)
                     </label>
                 </div>
-                <div class="form-group col-md-4">
-                    <label asp-for="CategoriaId" class="control-label"></label>
-                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
-                </div>
+
             </div>
-            <div style="padding-top:20px" class="form-group">
-                <input style="background-color: green;" type="submit" value="Adicionar" class="btn btn-primary" />
+            <div style="padding-top:20px" class="row">
+                <div class="form-group col">
+                    <input style="background-color: green;" type="submit" value="Adicionar" class="btn btn-primary" />
+                </div>
+                <div class="col-10">
+                    <a class="btn btn-primary" asp-action="Index"> <i class="fa fa-circle-arrow-left"></i>&nbsp; Voltar</a>
+                </div>
+
+
             </div>
         </form>
     </div>
 </div>
 
-<div style="padding-top:20px" >
-    <a class="btn btn-primary" asp-action="Index"> <i class="fa fa-circle-arrow-left"></i>  Voltar</a>
-</div>
+
 

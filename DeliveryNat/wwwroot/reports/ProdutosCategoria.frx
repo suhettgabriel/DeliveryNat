@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/27/2022 18:19:35" ReportInfo.Modified="10/27/2022 19:35:27" ReportInfo.CreatorVersion="2022.3.11.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqatl4XuJHWjEDrAL8Nc+ruzRcWK40iMts2i1FZ0VZcM4pC0qHjSmpzV/AvlNfGDDtX/hliP+Lrx5C6ggk+rizGhHcUPJpVDwG6WrhZkoW7h2z6beiR7OZmMJ/3O4DA5NnCtxyd5d6Z0Z72mrj63oPtK/xIOCwXzIe4F0MbCvTTynfhuvNacfZ7zg2N/+u6YRIgccsCFeE890w0YQ++VQqsw==">
+      <TableDataSource Name="Categorias" DataType="System.Int32" Enabled="true" TableName="Categorias">
+        <Column Name="CategoriaId" DataType="System.Int32"/>
+        <Column Name="CategoriaNome" DataType="System.String"/>
+        <Column Name="Descricao" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Produtos" DataType="System.Int32" Enabled="true" TableName="Produtos">
+        <Column Name="ProdutoId" DataType="System.Int32"/>
+        <Column Name="Nome" DataType="System.String"/>
+        <Column Name="DescricaoCurta" DataType="System.String"/>
+        <Column Name="DescricaoDetalhada" DataType="System.String"/>
+        <Column Name="Preco" DataType="System.Decimal"/>
+        <Column Name="ImagemUrl" DataType="System.String"/>
+        <Column Name="ImagemThumbnailUrl" DataType="System.String"/>
+        <Column Name="IsProdutoPreferido" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="EmEstoque" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CategoriaId" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Relation Name="Categorias_Produtos" ParentDataSource="Categorias" ChildDataSource="Produtos" ParentColumns="CategoriaId" ChildColumns="CategoriaId" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="85.05">
+      <TextObject Name="Text10" Left="179.55" Top="18.9" Width="359.1" Height="47.25" Text="PRODUTOS POR CATEGORIA&#13;&#10;" HorzAlign="Center" Font="Arial, 16pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="89.05" Width="718.2" Height="47.25" Fill.Color="SteelBlue" StartNewPage="true" DataSource="Categorias">
+      <TextObject Name="Text1" Left="18.9" Top="9.45" Width="160.65" Height="18.9" Text="[Categorias.CategoriaNome]" Font="Arial, 12pt, style=Bold" TextFill.Color="WhiteSmoke"/>
+      <TextObject Name="Text2" Left="189" Top="9.45" Width="529.2" Height="18.9" Text="[Categorias.Descricao]" Font="Arial, 10pt" TextFill.Color="WhiteSmoke"/>
+      <DataBand Name="Data2" Top="182.1" Width="718.2" Height="103.95" DataSource="Produtos">
+        <TextObject Name="Text3" Left="18.9" Top="9.45" Width="141.75" Height="18.9" Text="[Produtos.Nome]" Font="Arial, 10pt"/>
+        <TextObject Name="Text5" Left="160.65" Top="9.45" Width="207.9" Height="18.9" Text="[Produtos.DescricaoCurta]" Font="Arial, 10pt"/>
+        <TextObject Name="Text7" Left="396.9" Top="9.45" Width="94.5" Height="18.9" Text="[Produtos.Preco]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+        <PictureObject Name="Picture1" Left="538.65" Top="9.45" Width="160.65" Height="94.5" DataColumn="Produtos.ImagemUrl"/>
+        <DataHeaderBand Name="DataHeader1" Top="140.3" Width="718.2" Height="37.8" Fill.Color="Gainsboro">
+          <TextObject Name="Text4" Left="37.8" Top="9.45" Width="85.05" Height="18.9" Text="Nome" Font="Arial, 12pt, style=Bold"/>
+          <TextObject Name="Text6" Left="160.65" Top="9.45" Width="207.9" Height="18.9" Text="Descrição&#13;&#10;" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+          <TextObject Name="Text8" Left="415.8" Top="9.45" Width="94.5" Height="18.9" Text="Preço" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="290.05" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

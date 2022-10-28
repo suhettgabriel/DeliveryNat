@@ -11,18 +11,20 @@
             <a asp-controller="Produto" asp-action="Details"
                asp-route-ProdutoId="@Model.ProdutoId">@Model.Nome</a>
         </h4>
+
     </div>
     <div style="text-align: initial; height: 90px" class="row">
         <p>@Model.DescricaoCurta</p>
     </div>
 
-    <div>
+    <div style="padding-bottom:20px">
         <p class="button">
             <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra"
                asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ProdutoId="@Model.ProdutoId">
-                Incluir no Carrinho
+                <i class="fa fa-shopping-basket"></i>&nbsp; Incluir item
             </a>
         </p>
+        <hr />
     </div>
 
 </div>
