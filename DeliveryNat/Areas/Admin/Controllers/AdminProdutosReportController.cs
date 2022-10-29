@@ -61,7 +61,8 @@ namespace DeliveryNat.Areas.Admin.Controllers
             webReport.Report.Export(new PDFSimpleExport(), stream);
             stream.Position = 0;
 
-            return new FileStreamResult(stream, "application/pdf");
+            return File(stream, "application/zip", "LancheCategoria.pdf");
+            //return new FileStreamResult(stream, "application/pdf");
         }
 
     }

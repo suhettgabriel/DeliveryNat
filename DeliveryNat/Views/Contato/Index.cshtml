@@ -1,25 +1,61 @@
-﻿<div class="container">
-    <img src="~/images/faleconosco1.jpg" alt="Fale conosco" />
-    <div class="jumbotron">
-        <h3>Queremos ouvir o que você tem a dizer</h3>
-        <p>
-            Se você tiver alguma dúvida ou sugestão fale conosco
-        </p>
-        <p>
-            <span>
-                <img src="~/images/Envelope-icon24.png" />
-            </span>
-            <h5><email endereco="suhettgabriel1983@gmail.com" conteudo="Enviar um e-mail"></email></h5>
-            <br />
-            <span>
-                <img src="~/images/phone-app-icon.png" />
-            </span>
-            <h5>(22) 99233-2259</h5>
-            <br />
-            <span>
-                <img src="~/images/Home-iconred.png" />
-            </span>
-            <h5>Rua Governador Portela, n° 67, 28380-000, Natividade-RJ</h5>
-        </p>
+﻿<div class="row">
+    <img src="~/images/faleconosco.png" style="width:80%; height:60%" />
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Queremos ouvir o que você tem a dizer</h3>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email </label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Assunto</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Selecione o tema</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Pagamentos</option>
+                        <option>Pedidos</option>
+                        <option>Novidades</option>
+                        <option>Cupons</option>
+                        <option>Promoções</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descreva aqui sua dúvida ou sugestão</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </form>
+        </div>
+        <div style="text-align:center" class="col-6">
+            <br/>
+            <br/>
+            <br/>
+            <p>
+                Se você tiver alguma dúvida ou sugestão fale conosco
+            </p>
+            <p>
+                <span>
+                    <img src="~/images/Envelope-icon24.png" />
+                </span>
+                <h5><email endereco="suhettgabriel1983@gmail.com" conteudo="Enviar um e-mail"></email></h5>
+                <br />
+                <span>
+                    <img src="~/images/phone-app-icon.png" />
+                </span>
+                <h5>(22) 99233-2259</h5>
+                <br />
+                <span>
+                    <img src="~/images/Home-iconred.png" />
+                </span>
+                <h5>Rua Governador Portela, n° 67, 28380-000, Natividade-RJ</h5>
+            </p>
+        </div>
+
     </div>
 </div>

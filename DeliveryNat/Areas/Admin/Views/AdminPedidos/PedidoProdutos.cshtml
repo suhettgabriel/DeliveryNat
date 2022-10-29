@@ -4,40 +4,83 @@
     ViewData["Title"] = "PedidoProdutos";
     decimal totalPedido = 0;
 }
+<div style="padding-bottom:25px" class="row">
+    <h1><i style="color: darkslategrey" class="fa-solid fa-layer-group"></i>&nbsp;Produtos do Pedido</h1>
+</div>
+<div style="padding-bottom:10px" class="row">
+    <div class="col-sm-1">
+        <strong>Pedido:</strong>
+    </div>
+    <div style="background-color:#FFFACD" class="col-sm-3">
+        @Html.DisplayFor(model => @Model.Pedido.PedidoId)
+    </div>
+</div>
+<div style="padding-bottom:10px" class="row">
+    <div class="col-sm-1">
+        <strong>Cliente:</strong>
+    </div>
+    <div style="background-color:#FFFACD" class="col-sm-3">
+        @Html.DisplayFor(model => @Model.Pedido.Nome)
+    </div>
+</div>
+<div style="padding-bottom:10px" class="row">
+    <div class="col-sm-1">
+        <strong>Data:</strong>
+    </div>
+    <div style="background-color:#FFFACD" class="col-sm-3">
+        @Html.DisplayFor(model => @Model.Pedido.PedidoEnviado)
+    </div>
+</div>
+<div style="padding-bottom:30px" class="row">
+    <div class="col-sm-1">
+        <strong>Entrega:</strong>
+    </div>
+    <div style="background-color:#FFFACD" class="col-sm-3">
+        @Html.DisplayFor(model => @Model.Pedido.PedidoEntregueEm)
+    </div>
+</div>
 
-<h1>Produtos do Pedido</h1>
-<hr />
 
-<h3>Pedido  :  @Html.DisplayFor(model => @Model.Pedido.PedidoId)</h3>
-<h3>Cliente :  @Html.DisplayFor(model => @Model.Pedido.Nome)</h3>
-<h3>Data    :  @Html.DisplayFor(model => @Model.Pedido.PedidoEnviado)</h3>
-<h3>Entrega :  @Html.DisplayFor(model => @Model.Pedido.PedidoEntregueEm)</h3>
 
-<table class="table">
-    @foreach (var item in @Model.Pedido.PedidoItens)
-    {
-        totalPedido += (@item.Produto.Preco * @item.Quantidade);
-        <tr>
-            <td align="right">
-                <h3>@Html.DisplayFor(modelItem => item.Produto.Nome)</h3>
-            </td>
-            <td align="right">
-                <img src="@item.Produto.ImagemUrl" class="img-fluid" height="100" width="100">
-            </td>
-            <td align="right">
-                <h3>@string.Format("{0:C}", item.Produto.Preco)</h3>
-            </td>
-            <td align="right">
-                <h3>(@Html.DisplayFor(modelItem => item.Quantidade))</h3>
-            </td>
-        </tr>
-    }
-    <tr>
-            <td colspan="2">&nbsp;</td>
-            <td align="right">
-                <h3>Total do Pedido : @string.Format("{0:C}", @totalPedido)</h3>
-            </td>
-    </tr>
-</table>
-<a asp-action="Index" class="btn btn-outline-info">Retornar</a>
+<div class="table-responsive-lg">
+    <table class="table table-hover">
+        <thead style="background-color:white" class="thead-dark">
+            <tr>
+                <th scope="col">QUANTIDADE </th>
+                <th scope="col">PRODUTO</th>
+                <th scope="col">IMAGEM</th>
+                <th scope="col">VALOR R$</th>
+            </tr>
+        </thead>
+        @foreach (var item in @Model.Pedido.PedidoItens)
+        {
+            totalPedido += (@item.Produto.Preco * @item.Quantidade);
+
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <h4>(@Html.DisplayFor(modelItem => item.Quantidade))</h4>
+                    </td>
+                    <td>
+                        <h4>@Html.DisplayFor(modelItem => item.Produto.Nome)</h4>
+                    </td>
+                    <td>
+                        <img src="@item.Produto.ImagemUrl" class="img-fluid" height="80" width="80">
+                    </td>
+                    <td>
+                        <h4>@string.Format("{0:C}", item.Produto.Preco)</h4>
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
+</div>
+<div style="direction:rtl" class="row">
+    <h3>Total do Pedido :&nbsp; @string.Format("{0:C}", @totalPedido)</h3>
+</div>
+<div style="padding-top:30px" class="form-group">
+    <a class="btn btn-primary" asp-action="Index"><i class="fa fa-circle-arrow-left"></i>  Voltar</a>
+</div>
+
 
