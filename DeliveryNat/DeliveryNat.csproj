@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\ServiceDependencies\" />
     <Folder Include="wwwroot\images\produtos\" />
   </ItemGroup>
 
